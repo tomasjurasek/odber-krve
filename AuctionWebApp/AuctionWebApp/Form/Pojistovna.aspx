@@ -20,15 +20,15 @@
       </br>
       </br>
     <asp:DetailsView ID="DetailsView1" runat="server"
-        AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idpojistovna" GridLines="None">
+        AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idpojistovna" GridLines="None" OnItemInserted="DetailsView1_ItemInserted">
         <Fields>
 
-            <asp:TemplateField HeaderText="IdPojistovna" SortExpression="idpojistovna" InsertVisible="False">
+            <asp:TemplateField HeaderText="IdPojistovna" SortExpression="idpojistovna" InsertVisible="true">
 				<EditItemTemplate>
 			   	<asp:Label ID="idpojistovna" runat="server" Text='<%# Bind("idpojistovna") %>'></asp:Label>
 				</EditItemTemplate>
 				<InsertItemTemplate>
-			   		<asp:Label ID="idpojistovna" runat="server" Text="ID"></asp:Label>
+			   		<asp:Label ID="idpojistovna" runat="server"></asp:Label>
 				</InsertItemTemplate>
 				<ItemTemplate>
 					<asp:Label ID="idpojistovna" runat="server" Text='<%# Bind("idpojistovna") %>'></asp:Label>
@@ -41,6 +41,8 @@
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:TextBox ID="cislopojistovna" runat="server" Text='<%# Bind("cislopojistovna") %>'></asp:TextBox>
+                    <asp:CompareValidator ID="cislopojistovnaValidator" runat="server" ControlToValidate="cislopojistovna" ErrorMessage="Permission neni Integer" Operator="DataTypeCheck" Type="Integer" ValueToCompare="0">
+                        Permission neni Integer</asp:CompareValidator>
 				</InsertItemTemplate>
 				<ItemTemplate>
 					<asp:Label ID="cislopojistovna" runat="server" Text='<%# Bind("cislopojistovna") %>'></asp:Label>

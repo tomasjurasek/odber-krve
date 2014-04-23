@@ -3,3 +3,8 @@ C:\Users\silent\Desktop\DAIS\AuctionWebApp\AuctionWebApp\bin\AuctionWebApp.pdb
 C:\Users\silent\Desktop\DAIS\AuctionWebApp\AuctionWebApp\obj\Debug\AuctionWebApp.csprojResolveAssemblyReference.cache
 C:\Users\silent\Desktop\DAIS\AuctionWebApp\AuctionWebApp\obj\Debug\AuctionWebApp.dll
 C:\Users\silent\Desktop\DAIS\AuctionWebApp\AuctionWebApp\obj\Debug\AuctionWebApp.pdb
+C:\Users\silent\SkyDrive\skola\banska_veci\dais\odber-krve\odber-krve\AuctionWebApp\AuctionWebApp\bin\AuctionWebApp.dll
+C:\Users\silent\SkyDrive\skola\banska_veci\dais\odber-krve\odber-krve\AuctionWebApp\AuctionWebApp\bin\AuctionWebApp.pdb
+C:\Users\silent\SkyDrive\skola\banska_veci\dais\odber-krve\odber-krve\AuctionWebApp\AuctionWebApp\obj\Debug\AuctionWebApp.csprojResolveAssemblyReference.cache
+C:\Users\silent\SkyDrive\skola\banska_veci\dais\odber-krve\odber-krve\AuctionWebApp\AuctionWebApp\obj\Debug\AuctionWebApp.dll
+C:\Users\silent\SkyDrive\skola\banska_veci\dais\odber-krve\odber-krve\AuctionWebApp\AuctionWebApp\obj\Debug\AuctionWebApp.pdb

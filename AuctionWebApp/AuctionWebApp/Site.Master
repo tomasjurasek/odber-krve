@@ -34,7 +34,7 @@
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
                         <asp:MenuItem NavigateUrl="Form/Auction.aspx" Text="My Auctions"/>
                         <asp:MenuItem NavigateUrl="Form/User.aspx" Text="User"/>
-                        <asp:MenuItem NavigateUrl="Form/Category.aspx" Text="Category"/>
+                        <asp:MenuItem NavigateUrl="Form/Pojistovna.aspx" Text="Pojistovna"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                     </Items>
                 </asp:Menu>

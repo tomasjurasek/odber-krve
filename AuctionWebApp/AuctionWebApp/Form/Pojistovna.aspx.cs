@@ -13,5 +13,10 @@ namespace AuctionWebApp.Form
         {
 
         }
+
+        protected void DetailsView1_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            GridView1.DataBind();
+        }
     }
 }
