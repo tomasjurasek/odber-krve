@@ -32,10 +32,12 @@
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="Form/Auction.aspx" Text="My Auctions"/>
-                        <asp:MenuItem NavigateUrl="Form/User.aspx" Text="User"/>
+                        <asp:MenuItem NavigateUrl="Form/Pacient.aspx" Text="Pacient"/>
+                        <asp:MenuItem NavigateUrl="Form/Doktor.aspx" Text="Doktor"/>
                         <asp:MenuItem NavigateUrl="Form/Pojistovna.aspx" Text="Pojistovna"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                        <asp:MenuItem NavigateUrl="Form/Stav.aspx" Text="Stav"/>
+                        <asp:MenuItem NavigateUrl="Form/KrevniSkupina.aspx" Text="KrevniSkupina"/>
+                        <asp:MenuItem NavigateUrl="Form/NebezpecnaNemoc.aspx" Text="NebezpecnaNemoc"/>
                     </Items>
                 </asp:Menu>
             </div>
