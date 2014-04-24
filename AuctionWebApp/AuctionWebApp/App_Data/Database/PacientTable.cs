@@ -116,7 +116,7 @@ namespace AuctionWebApp.Database
                 pacient.Krev = new KrevniSkupinaTable().Select(pacient.IdKrve);
                 pacient.Pojistovna = new PojistovnaTable().Select(pacient.IdPojistovna);
 
-
+                //pacient.zaznamy = (new ZdravotniZaznamTable().SelectPacient(pacient.IdPacient));
 
                 Pacienti.Add(pacient);
             }

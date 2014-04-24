@@ -11,6 +11,8 @@ namespace AuctionWebApp.Form
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Pacient p = new Pacient();
+            //GridView2.DataBind = p.zaznamy;
             
         }
 
@@ -31,6 +33,11 @@ namespace AuctionWebApp.Form
         protected void DetailsView1_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
         {
             GridView1.DataBind();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // GridView2.DataBind = 
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
@@ -18,6 +19,8 @@ namespace AuctionWebApp.Database
         public int Bonus { get; set; }
         public int IdKrve { get; set; }
         public int IdPojistovna { get; set; }
+
+        //public Collection<ZdravotniZaznam> zaznamy = null;
 
 
         public KrevniSkupina Krev { get; set; }

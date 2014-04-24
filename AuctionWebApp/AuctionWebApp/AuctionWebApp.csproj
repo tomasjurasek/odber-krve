@@ -75,6 +75,7 @@
     <Content Include="Form\Pojistovna.aspx" />
     <Content Include="Form\Stav.aspx" />
     <Content Include="Form\User.aspx" />
+    <Content Include="Form\ZdravotniZaznam.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -204,6 +205,13 @@
     <Compile Include="Form\User.aspx.designer.cs">
       <DependentUpon>User.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form\ZdravotniZaznam.aspx.cs">
+      <DependentUpon>ZdravotniZaznam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\ZdravotniZaznam.aspx.designer.cs">
+      <DependentUpon>ZdravotniZaznam.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,6 +233,8 @@
     </Compile>
     <Compile Include="App_Data\Database\Stav.cs" />
     <Compile Include="App_Data\Database\StavTable.cs" />
+    <Compile Include="App_Data\Database\ZdravotniZaznam.cs" />
+    <Compile Include="App_Data\Database\ZdravotniZaznamTable.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

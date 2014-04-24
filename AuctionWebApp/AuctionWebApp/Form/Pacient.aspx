@@ -5,7 +5,7 @@
     <asp:GridView ID="GridView1" runat="server"
          DataKeyNames="IdPacient" 
         AutoGenerateColumns="False"
-    AllowPaging="True" DataSourceID="ObjectDataSource1">
+    AllowPaging="True" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
 
          <Columns>
       <asp:CommandField ShowSelectButton="true" ShowDeleteButton="True"/>
@@ -56,6 +56,13 @@
 
 
     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" TypeName="AuctionWebApp.Database.PacientTable" DataObjectTypeName="AuctionWebApp.Database.Pacient" SelectMethod="Select" InsertMethod="Insert" UpdateMethod="Update">
+
+        <SelectParameters>
+            <asp:ControlParameter PropertyName="SelectedValue" Type="Int32" Name="IdPacient" ControlID="GridView1" DefaultValue="1"></asp:ControlParameter>
+        </SelectParameters>
+</asp:ObjectDataSource>
+
+        <asp:ObjectDataSource ID="ObjectDataSource5" runat="server" TypeName="AuctionWebApp.Database.ZdravotniZaznamTable" DataObjectTypeName="AuctionWebApp.Database.ZdravotniZaznam" SelectMethod="SelectPacient" InsertMethod="Insert" UpdateMethod="Update">
 
         <SelectParameters>
             <asp:ControlParameter PropertyName="SelectedValue" Type="Int32" Name="IdPacient" ControlID="GridView1" DefaultValue="1"></asp:ControlParameter>
@@ -250,6 +257,16 @@
 
 
 
+              <%--<asp:TemplateField HeaderText="zaznamy" SortExpression="zaznamy" InsertVisible="True">
+				
+				<ItemTemplate>
+                    <%foreach (var item in ) %>
+					<asp:Label ID="pojistovna" runat="server" Text='<%# Bind("pojistovna.cislopojistovna") %>'></asp:Label>
+				</ItemTemplate>
+			</asp:TemplateField>--%>
+
+
+
 
              <asp:CommandField ShowEditButton="True" ShowInsertButton="True" CancelText="Zrusit" DeleteText="Smazat" EditText="Upravit" InsertText="Vlozit" NewText="Novy zaznam" SelectText="Vzbrat" UpdateText="Aktualizovat" /> 
         
@@ -261,4 +278,27 @@
 
 
     </asp:DetailsView>
+    <asp:GridView ID="GridView2" runat="server"
+        DataKeyNames="IdPacient" 
+        AutoGenerateColumns="False"
+    AllowPaging="True" DataSourceID="ObjectDataSource5">
+        
+        
+       <%-- <EmptyDataTemplate>
+		<asp:Label ID="lblEmptySearch" runat="server">No Results Found</asp:Label>
+	</EmptyDataTemplate>--%>
+
+
+         <Columns>
+     <%-- <asp:CommandField ShowSelectButton="false" ShowDeleteButton="false"/>--%>
+      
+        <asp:BoundField HeaderText="IdZaznam"  DataField="IdZaznam" SortExpression="idzaznam"/>
+             <asp:BoundField HeaderText="Popis"  DataField="Popis" SortExpression="popis"/>
+             <asp:BoundField HeaderText="Datum"  DataField="Datum" SortExpression="datum"/>
+             <%--<asp:BoundField HeaderText="IdPacient"  DataField="Idpacient" SortExpression="idpacient"/>--%>
+            
+
+    </Columns>
+
+    </asp:GridView>
 </asp:Content>
