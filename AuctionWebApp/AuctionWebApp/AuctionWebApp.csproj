@@ -68,6 +68,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Form\Auction.aspx" />
     <Content Include="Form\Category.aspx" />
+    <Content Include="Form\Doktor.aspx" />
     <Content Include="Form\KrevniSkupina.aspx" />
     <Content Include="Form\NebezpecnaNemoc.aspx" />
     <Content Include="Form\Pojistovna.aspx" />
@@ -137,6 +138,8 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Data\Database\Doktor.cs" />
+    <Compile Include="App_Data\Database\DoktorTable.cs" />
     <Compile Include="Form\Auction.aspx.cs">
       <DependentUpon>Auction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,6 +153,13 @@
     </Compile>
     <Compile Include="Form\Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Doktor.aspx.cs">
+      <DependentUpon>Doktor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Doktor.aspx.designer.cs">
+      <DependentUpon>Doktor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\KrevniSkupina.aspx.cs">
       <DependentUpon>KrevniSkupina.aspx</DependentUpon>
