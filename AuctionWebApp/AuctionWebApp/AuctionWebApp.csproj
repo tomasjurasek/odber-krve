@@ -70,6 +70,7 @@
     <Content Include="Form\Category.aspx" />
     <Content Include="Form\KrevniSkupina.aspx" />
     <Content Include="Form\Pojistovna.aspx" />
+    <Content Include="Form\Stav.aspx" />
     <Content Include="Form\User.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -163,6 +164,13 @@
     <Compile Include="Form\Pojistovna.aspx.designer.cs">
       <DependentUpon>Pojistovna.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form\Stav.aspx.cs">
+      <DependentUpon>Stav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Stav.aspx.designer.cs">
+      <DependentUpon>Stav.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form\User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +193,8 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="App_Data\Database\Stav.cs" />
+    <Compile Include="App_Data\Database\StavTable.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
