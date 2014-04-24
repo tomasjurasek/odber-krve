@@ -69,6 +69,7 @@
     <Content Include="Form\Auction.aspx" />
     <Content Include="Form\Category.aspx" />
     <Content Include="Form\KrevniSkupina.aspx" />
+    <Content Include="Form\NebezpecnaNemoc.aspx" />
     <Content Include="Form\Pojistovna.aspx" />
     <Content Include="Form\Stav.aspx" />
     <Content Include="Form\User.aspx" />
@@ -157,6 +158,13 @@
     <Compile Include="Form\KrevniSkupina.aspx.designer.cs">
       <DependentUpon>KrevniSkupina.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form\NebezpecnaNemoc.aspx.cs">
+      <DependentUpon>NebezpecnaNemoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\NebezpecnaNemoc.aspx.designer.cs">
+      <DependentUpon>NebezpecnaNemoc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form\Pojistovna.aspx.cs">
       <DependentUpon>Pojistovna.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +193,8 @@
     <Compile Include="App_Data\Database\PojistovnaTable.cs" />
     <Compile Include="App_Data\Database\KrevniSkupina.cs" />
     <Compile Include="App_Data\Database\KrevniSkupinaTable.cs" />
+    <Compile Include="App_Data\Database\NebezpecnaNemoc.cs" />
+    <Compile Include="App_Data\Database\NebezpecnaNemocTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
