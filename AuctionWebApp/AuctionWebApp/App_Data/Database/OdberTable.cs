@@ -189,5 +189,14 @@ namespace AuctionWebApp.Database
             command.ExecuteNonQuery();
         }
 
+        public void NakazeneOdbery()
+        {
+            Database db = new Database();
+            db.Connect();
+            SqlCommand command = db.CreateCommand("OdstranNeplatneOdbery");
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+        }
+
     }
 }

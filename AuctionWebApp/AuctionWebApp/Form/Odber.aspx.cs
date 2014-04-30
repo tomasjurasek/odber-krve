@@ -23,5 +23,12 @@ namespace AuctionWebApp.Form
             table.ZkontrolujOdbery();
             GridView1.DataBind();
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            OdberTable table = new OdberTable();
+            table.NakazeneOdbery();
+            GridView1.DataBind();
+        }
     }
 }
