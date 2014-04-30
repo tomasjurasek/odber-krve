@@ -179,5 +179,15 @@ namespace AuctionWebApp.Database
             return odber;
         }
 
+
+        public void ZkontrolujOdbery()
+        {
+            Database db = new Database();
+            db.Connect();
+            SqlCommand command = db.CreateCommand("KontrolaTrvanlivostiOdberu");
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+        }
+
     }
 }

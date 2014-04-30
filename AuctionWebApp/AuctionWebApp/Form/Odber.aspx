@@ -10,7 +10,7 @@
     AllowPaging="True" DataSourceID="ObjectDataSource1" >
 
          <Columns>
-      <asp:CommandField ShowSelectButton="true" ShowDeleteButton="True"/>
+      <asp:CommandField ShowSelectButton="true" ShowDeleteButton="false"/>
       <asp:BoundField HeaderText="IdOdber"     DataField="IdOdber"  SortExpression="idodber"/>
      <%-- <asp:BoundField HeaderText="IdDoktor"  DataField="IdDoktor" SortExpression="iddoktor"/>
              <asp:BoundField HeaderText="IdPacient"  DataField="IdPacient" SortExpression="idpacient"/>
@@ -126,9 +126,13 @@
             <asp:TemplateField HeaderText="CisloUschovna" SortExpression="CisloUschovna" InsertVisible="true">
 				<EditItemTemplate>
 			   	<asp:TextBox ID="CisloUschovna" runat="server" Text='<%# Bind("CisloUschovna") %>'></asp:TextBox>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="CisloUschovna"
+                 Operator="DataTypeCheck" Type="Integer">Uschovna neni cislo</asp:CompareValidator>
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:TextBox ID="CisloUschovna" runat="server" Text='<%# Bind("CisloUschovna") %>'></asp:TextBox>
+<asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ControlToValidate ="CisloUschovna"
+   Operator="DataTypeCheck" Type="Integer" >Uschovna neni cislo</asp:CompareValidator>
 				</InsertItemTemplate>
 				<ItemTemplate>
 					<asp:Label ID="CisloUschovna" runat="server" Text='<%# Bind("CisloUschovna") %>'></asp:Label>
@@ -196,9 +200,22 @@
         </SelectParameters></asp:ObjectDataSource>
 
 
+    
+
+
+    
+
+
+    
+
+
     <asp:ObjectDataSource ID="ObjectDataSource5" runat="server"
         TypeName="AuctionWebApp.Database.PacientTable" 
         SelectMethod="Select"></asp:ObjectDataSource>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Zkontroluj stare odbery" />
 
 
 </asp:Content>

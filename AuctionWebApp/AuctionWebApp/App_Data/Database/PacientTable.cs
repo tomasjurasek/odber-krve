@@ -198,5 +198,20 @@ namespace AuctionWebApp.Database
 
             return pacient;
         }
+
+        public void BonusPacienti(int pojistovna)
+        {
+
+            Database db = new Database();
+            db.Connect();
+            SqlCommand command = db.CreateCommand("BonusPacient");
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.Add(new SqlParameter("@idpojistovna", SqlDbType.Int));
+            command.Parameters["@idpojistovna"].Value = pojistovna;
+            command.ExecuteNonQuery();
+        }
+
+
     }
 }

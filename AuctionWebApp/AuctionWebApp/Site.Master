@@ -39,6 +39,7 @@
                         <asp:MenuItem NavigateUrl="Form/Stav.aspx" Text="Stav"/>
                         <asp:MenuItem NavigateUrl="Form/KrevniSkupina.aspx" Text="KrevniSkupina"/>
                         <asp:MenuItem NavigateUrl="Form/NebezpecnaNemoc.aspx" Text="NebezpecnaNemoc"/>
+                        <asp:MenuItem NavigateUrl="Form/ZdravotniZaznam.aspx" Text="ZdravotniZaznam"/>
                     </Items>
                 </asp:Menu>
             </div>

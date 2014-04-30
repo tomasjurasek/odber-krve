@@ -318,4 +318,13 @@
     
     
     
+&nbsp;<asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource4"
+                    DataTextField="CisloPojistovna" DataValueField="IdPojistovna"
+                        AppendDataBoundItems="true">
+                        <asp:ListItem Value="0">Vyber pojistovnu</asp:ListItem>
+                </asp:DropDownList>
+    <asp:Button ID="Button1" runat="server" Text="Pridej bonusy" OnClick="Button1_Click" />
+    
+    
+    
 </asp:Content>

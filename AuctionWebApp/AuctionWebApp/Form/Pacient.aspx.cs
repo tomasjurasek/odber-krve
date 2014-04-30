@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AuctionWebApp.Database;
 
 namespace AuctionWebApp.Form
 {
@@ -44,6 +45,13 @@ namespace AuctionWebApp.Form
         protected void ObjectDataSource2_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
         {
             Label1.Text= e.ReturnValue.ToString();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            PacientTable table = new PacientTable();
+            table.BonusPacienti(Int32.Parse(ListCategory.SelectedValue.ToString()));
+            GridView1.DataBind();
         }
     }
 }

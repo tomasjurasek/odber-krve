@@ -139,5 +139,20 @@ namespace AuctionWebApp.Database
             return doktor;
         }
 
+
+        public void PridejBonusy(int pojistovna)
+        {
+
+            Database db = new Database();
+            db.Connect();
+            SqlCommand command = db.CreateCommand("BonusDoktor");
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.Add(new SqlParameter("@idpojistovna", SqlDbType.Int));
+            command.Parameters["@idpojistovna"].Value = pojistovna;
+            command.ExecuteNonQuery();
+        
+        }
+
     }
 }

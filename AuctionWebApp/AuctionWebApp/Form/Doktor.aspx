@@ -151,6 +151,20 @@
     
 
 
+    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server"
+        TypeName="AuctionWebApp.Database.PojistovnaTable" 
+        SelectMethod="Select"></asp:ObjectDataSource>
+
+
+    
+
+
+    
+
+
+    
+
+
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"
         TypeName="AuctionWebApp.Database.DoktorTable" 
         SelectMethod="Select"  DeleteMethod="Delete">
@@ -159,6 +173,18 @@
       <asp:ControlParameter Type="Int32" Name="IdDoktor" ControlID="GridView1"></asp:ControlParameter>
     </DeleteParameters>
     </asp:ObjectDataSource>
+
+
+    
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource3"
+                    DataTextField="CisloPojistovna" DataValueField="IdPojistovna"
+                        AppendDataBoundItems="true">
+                        <asp:ListItem Value="0">Vyber pojistovnu</asp:ListItem>
+                </asp:DropDownList>
+    <asp:Button ID="Button1" runat="server" Text="Pridej doktorom bonusy" OnClick="Button1_Click" />
 
 
     
