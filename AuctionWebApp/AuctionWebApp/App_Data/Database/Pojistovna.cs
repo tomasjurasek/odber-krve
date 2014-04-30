@@ -7,34 +7,9 @@ namespace AuctionWebApp.Database
 {
     public class Pojistovna
     {
-        private int mIdPojistovna;
-        private int mCisloPojistovna;
+        public int IdPojistovna { get; set; }
+        public int CisloPojistovna { get; set; }
 
-        public int IdPojistovna
-        {
-            get
-            {
-                return mIdPojistovna;
-            }
-            set
-            {
-                mIdPojistovna = value;
-            }
-
-        }
-
-        public int CisloPojistovna
-        {
-            get
-            {
-                return mCisloPojistovna;
-            }
-            set
-            {
-
-                mCisloPojistovna = value;
-            }
-
-        }
+        
     }
 }

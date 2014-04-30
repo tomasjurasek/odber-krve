@@ -7,33 +7,9 @@ namespace AuctionWebApp.Database
 {
     public class Stav
     {
-        private int mIdStav;
-        private string mStav;
+        public int IdStav { get; set; }
+        public string NazevStavu { get; set; }
 
-        public int IdStav
-        {
-            get
-            {
-                return mIdStav;
-            }
-            set
-            {
-                mIdStav = value;
-            }
-
-        }
-
-        public string NazevStavu
-        {
-            get
-            {
-                return mStav;
-            }
-            set
-            {
-                mStav = value;
-            }
-
-        }
+        
     }
 }

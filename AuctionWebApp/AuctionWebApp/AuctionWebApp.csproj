@@ -66,8 +66,6 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="Form\Auction.aspx" />
-    <Content Include="Form\Category.aspx" />
     <Content Include="Form\Doktor.aspx" />
     <Content Include="Form\KrevniSkupina.aspx" />
     <Content Include="Form\NebezpecnaNemoc.aspx" />
@@ -127,13 +125,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Data\Database\Auction.cs" />
-    <Compile Include="App_Data\Database\AuctionTable.cs" />
-    <Compile Include="App_Data\Database\Category.cs" />
-    <Compile Include="App_Data\Database\CategoryTable.cs" />
     <Compile Include="App_Data\Database\Database.cs" />
-    <Compile Include="App_Data\Database\User.cs" />
-    <Compile Include="App_Data\Database\UserTable.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,20 +135,6 @@
     </Compile>
     <Compile Include="App_Data\Database\Doktor.cs" />
     <Compile Include="App_Data\Database\DoktorTable.cs" />
-    <Compile Include="Form\Auction.aspx.cs">
-      <DependentUpon>Auction.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Form\Auction.aspx.designer.cs">
-      <DependentUpon>Auction.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Form\Category.aspx.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Form\Category.aspx.designer.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Form\Doktor.aspx.cs">
       <DependentUpon>Doktor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

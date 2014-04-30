@@ -7,32 +7,9 @@ namespace AuctionWebApp.Database
 {
     public class KrevniSkupina
     {
-        private int mIdKrve;
-        private String mSkupina;
+        public int IdKrve { get; set; }
+        public String Skupina {get;set;}
 
-        public int IdKrve
-        {
-            get
-            {
-                return mIdKrve;
-            }
-            set
-            {
-                mIdKrve = value;
-            }
-
-        }
-
-        public string Skupina
-        {
-            get
-            {
-                return mSkupina;
-            }
-            set
-            {
-                mSkupina = value;
-            }
-        }
+        
     }
 }

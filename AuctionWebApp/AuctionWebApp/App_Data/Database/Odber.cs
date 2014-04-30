@@ -13,7 +13,7 @@ namespace AuctionWebApp.Database
         public int IdStav { get; set; }
         public int IdUskladneni { get; set; }
         public DateTime Datum { get; set; }
-        public string mDatum { get; set; }
+        //public string mDatum { get; set; }
         //public string Poznamka { get; set; }
         public int CisloUschovna { get; set; }
 

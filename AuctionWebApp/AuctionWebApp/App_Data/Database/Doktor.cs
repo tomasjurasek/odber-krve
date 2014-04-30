@@ -8,100 +8,14 @@ namespace AuctionWebApp.Database
     public class Doktor
     {
 
-        private int mIdDoktor;
-        private string mJmeno;
-        private string mPrijmeni;
-        private bool mPrimar;
-        public string vPrimar { get; set; }
-        private string mEmail;
-        private int mTelefon;
-        private int mBonus;
+        public int IdDoktor {get;set;}
+        public string Jmeno { get; set; }
+        public string Prijmeni { get; set; }
+        public bool Primar { get; set; }
 
+        public string Email { get; set; }
+        public int Telefon { get; set; }
+        public int Bonus { get; set; }
 
-        public int IdDoktor
-        {
-            get
-            {
-                return mIdDoktor;
-            }
-            set
-            {
-                mIdDoktor = value;
-            }
-        }
-
-        public string Jmeno
-        {
-            get
-            {
-                return mJmeno;
-            }
-            set
-            {
-                mJmeno = value;
-            }
-
-        }
-
-        public string Prijmeni
-        {
-            get
-            {
-                return mPrijmeni;
-            }
-            set
-            {
-                mPrijmeni = value;
-            }
-
-        }
-
-        public bool Primar
-        {
-            get 
-            {
-                return mPrimar;
-            }
-            set
-            {
-                mPrimar = value;
-            }
-        }
-
-        public string Email
-        {
-            get
-            {
-                return mEmail;
-            }
-            set
-            {
-                mEmail = value;
-            }
-        }
-
-        public int Telefon
-        {
-            get
-            {
-                return mTelefon;
-            }
-            set
-            {
-                mTelefon = value;
-            }
-        }
-        public int Bonus
-        {
-            get
-            {
-                return mBonus;
-            }
-            set
-            {
-                mBonus = value;
-            }
-
-        }
     }
 }
