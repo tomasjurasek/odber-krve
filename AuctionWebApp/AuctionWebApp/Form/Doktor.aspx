@@ -72,7 +72,11 @@
 			   	<asp:TextBox ID="primar" runat="server" Text='<%# Bind("primar") %>'></asp:TextBox>
 				</EditItemTemplate>
 				<InsertItemTemplate>
-			   		<asp:TextBox ID="primar" runat="server" Text='<%# Bind("primar") %>'></asp:TextBox>
+			   		<asp:DropDownList ID="DropDownListSubContractors" runat="server" AppendDataBoundItems="true" 
+                          SelectedValue='<%# Bind("primar") %>' >
+                    <asp:ListItem Text="Ano" Value="True" />   
+                   <asp:ListItem Text="Ne" Value="False" /> 
+                </asp:DropDownList>
                     
 				</InsertItemTemplate>
 				<ItemTemplate>
@@ -112,10 +116,12 @@
              <asp:TemplateField HeaderText="Bonus" SortExpression="bonus" InsertVisible="True">
 				<EditItemTemplate>
 			   	<asp:TextBox ID="bonus" runat="server" Text='<%# Bind("bonus") %>'></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="bonus" 
+                        Operator="DataTypeCheck" Type="Integer" ValueToCompare="0">Bonus musi byt cislo</asp:CompareValidator>
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:TextBox ID="bonus" runat="server" Text='<%# Bind("bonus") %>'></asp:TextBox>
-                    
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="bonus" Operator="DataTypeCheck" Type="Integer" ErrorMessage="CompareValidator">Bonus musi byt cislo</asp:CompareValidator>
 				</InsertItemTemplate>
 				<ItemTemplate>
 					<asp:Label ID="bonus" runat="server" Text='<%# Bind("bonus") %>'></asp:Label>
@@ -136,6 +142,15 @@
     </asp:DetailsView>
 
 
+    
+
+
+    
+
+
+    
+
+
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"
         TypeName="AuctionWebApp.Database.DoktorTable" 
         SelectMethod="Select"  DeleteMethod="Delete">
@@ -144,6 +159,9 @@
       <asp:ControlParameter Type="Int32" Name="IdDoktor" ControlID="GridView1"></asp:ControlParameter>
     </DeleteParameters>
     </asp:ObjectDataSource>
+
+
+    
 
 
     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" TypeName="AuctionWebApp.Database.DoktorTable" DataObjectTypeName="AuctionWebApp.Database.Doktor" SelectMethod="Select" InsertMethod="Insert" UpdateMethod="Update">

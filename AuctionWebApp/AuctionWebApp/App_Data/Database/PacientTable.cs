@@ -31,15 +31,52 @@ namespace AuctionWebApp.Database
             return ret;
         }
 
-        public int Insert(Pacient pacient)
+        public string Insert(Pacient pacient)
         {
             Database db = new Database();
             db.Connect();
-            SqlCommand command = db.CreateCommand(SQL_INSERT);
-            PrepareCommand(command, pacient);
-            int ret = db.ExecuteNonQuery(command);
+            SqlCommand command = db.CreateCommand("VytvorPacienta");
+            command.CommandType = CommandType.StoredProcedure;
+            //PrepareCommand(command, pacient);
+            //int ret = db.ExecuteNonQuery(command);
+
+
+            command.Parameters.Add(new SqlParameter("@jmeno", SqlDbType.VarChar, pacient.Jmeno.Length));
+            command.Parameters["@jmeno"].Value = pacient.Jmeno;
+
+            command.Parameters.Add(new SqlParameter("@prijmeni", SqlDbType.VarChar, pacient.Prijmeni.Length));
+            command.Parameters["@prijmeni"].Value = pacient.Prijmeni;
+
+            command.Parameters.Add(new SqlParameter("@vek", SqlDbType.Int));
+            command.Parameters["@vek"].Value = pacient.Vek;
+
+            command.Parameters.Add(new SqlParameter("@mesto", SqlDbType.VarChar, pacient.Mesto.Length));
+            command.Parameters["@mesto"].Value = pacient.Mesto;
+
+            command.Parameters.Add(new SqlParameter("@adresa", SqlDbType.VarChar, pacient.Adresa.Length));
+            command.Parameters["@adresa"].Value = pacient.Adresa;
+
+            command.Parameters.Add(new SqlParameter("@telefon", SqlDbType.Int));
+            command.Parameters["@telefon"].Value = pacient.Telefon;
+
+            command.Parameters.Add(new SqlParameter("@email", SqlDbType.VarChar, pacient.Email.Length));
+            command.Parameters["@email"].Value = pacient.Email;
+
+            command.Parameters.Add(new SqlParameter("@id_krve", SqlDbType.Int));
+            command.Parameters["@id_krve"].Value = pacient.IdKrve;
+
+            command.Parameters.Add(new SqlParameter("@id_pojistovna", SqlDbType.Int));
+            command.Parameters["@id_pojistovna"].Value = pacient.IdPojistovna;
+
+            command.Parameters.Add(new SqlParameter("@out", SqlDbType.VarChar, 1000));
+            command.Parameters["@out"].Value = 0;
+            command.Parameters["@out"].Direction = ParameterDirection.Output;
+
+
+            command.ExecuteNonQuery();
+            //string ret =command.Parameters["@out"].Value.ToString();
             db.Close();
-            return ret;
+            return command.Parameters["@out"].Value.ToString();
         }
 
         private void PrepareCommand(SqlCommand command, Pacient pacient)
@@ -77,7 +114,9 @@ namespace AuctionWebApp.Database
             command.Parameters.Add(new SqlParameter("@pojistovna", SqlDbType.Int));
             command.Parameters["@pojistovna"].Value = pacient.IdPojistovna;
 
-
+            command.Parameters.Add(new SqlParameter("@out", SqlDbType.VarChar, 1000));
+            command.Parameters["@out"].Value = 0;
+            command.Parameters["@out"].Direction = ParameterDirection.Output;
         }
 
         public Collection<Pacient> Select()

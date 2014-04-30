@@ -13,6 +13,7 @@ namespace AuctionWebApp.Form
         {
             //Pacient p = new Pacient();
             //GridView2.DataBind = p.zaznamy;
+          
             
         }
 
@@ -38,6 +39,11 @@ namespace AuctionWebApp.Form
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
            // GridView2.DataBind = 
+        }
+
+        protected void ObjectDataSource2_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+            Label1.Text= e.ReturnValue.ToString();
         }
     }
 }

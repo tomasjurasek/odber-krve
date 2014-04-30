@@ -24,6 +24,7 @@
                  <ItemTemplate >
                      <asp:Label ID="Krev" runat="server" Text='<%# Eval("Krev.Skupina") %>'></asp:Label>
                 </ItemTemplate>
+                
              </asp:TemplateField>
 
               <asp:TemplateField HeaderText ="Pojistovna">
@@ -55,7 +56,7 @@
         SelectMethod="Select"></asp:ObjectDataSource>
 
 
-    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" TypeName="AuctionWebApp.Database.PacientTable" DataObjectTypeName="AuctionWebApp.Database.Pacient" SelectMethod="Select" InsertMethod="Insert" UpdateMethod="Update">
+    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" TypeName="AuctionWebApp.Database.PacientTable" DataObjectTypeName="AuctionWebApp.Database.Pacient" SelectMethod="Select" InsertMethod="Insert" UpdateMethod="Update" OnInserted="ObjectDataSource2_Inserted">
 
         <SelectParameters>
             <asp:ControlParameter PropertyName="SelectedValue" Type="Int32" Name="IdPacient" ControlID="GridView1" DefaultValue="1"></asp:ControlParameter>
@@ -122,10 +123,13 @@
             <asp:TemplateField HeaderText="Vek" SortExpression="vek" InsertVisible="True">
 				<EditItemTemplate>
 			   	<asp:TextBox ID="vek" runat="server" Text='<%# Bind("vek") %>'></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ControlToValidate="vek"
+                       Operator="DataTypeCheck" Type="Integer" >Vek musi byt cislo</asp:CompareValidator>
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:TextBox ID="vek" runat="server" Text='<%# Bind("vek") %>'></asp:TextBox>
-                    
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="vek"
+                        Operator="DataTypeCheck" Type="Integer">Vek musi byt cislo</asp:CompareValidator>
 				</InsertItemTemplate>
 				<ItemTemplate>
 					<asp:Label ID="vek" runat="server" Text='<%# Bind("vek") %>'></asp:Label>
@@ -193,7 +197,7 @@
 			   	<asp:TextBox ID="bonus" runat="server" Text='<%# Bind("bonus") %>'></asp:TextBox>
 				</EditItemTemplate>
 				<InsertItemTemplate>
-			   		<asp:TextBox ID="bonus" runat="server" Text='<%# Bind("bonus") %>'></asp:TextBox>
+			   		<asp:Label ID="bonus" runat="server" Text='<%# Bind("bonus") %>'></asp:Label>
                     
 				</InsertItemTemplate>
 				<ItemTemplate>
@@ -209,14 +213,18 @@
                     <asp:DropDownList ID="ListKrve" runat="server" DataSourceID="ObjectDataSource3"
                         DataTextField="Skupina" DataValueField="IdKrve" AppendDataBoundItems="true"
                         SelectedValue='<%# Bind("IdKrve") %>'>
-                        <asp:ListItem Value="0">Please Select</asp:ListItem>
+                        <asp:ListItem Value="0">Vyber krev</asp:ListItem>
                     </asp:DropDownList>
                     
                                       
 			   	<%--<asp:TextBox ID="krev" runat="server" Text='<%# Bind("krev.skupina") %>'></asp:TextBox>--%>
 				</EditItemTemplate>
 				<InsertItemTemplate>
-			   		<asp:TextBox ID="krev" runat="server" Text='<%# Bind("krev.skupina") %>'></asp:TextBox>
+			   		 <asp:DropDownList ID="ListKrve" runat="server" DataSourceID="ObjectDataSource3"
+                        DataTextField="Skupina" DataValueField="IdKrve" AppendDataBoundItems="true"
+                        SelectedValue='<%# Bind("IdKrve") %>'>
+                        <asp:ListItem Value="0">Vyber krev</asp:ListItem>
+                    </asp:DropDownList>
                     
 				</InsertItemTemplate>
 				<ItemTemplate>
@@ -240,14 +248,18 @@
                     <asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource4"
                     DataTextField="CisloPojistovna" DataValueField="IdPojistovna" SelectedValue='<%# Bind("IdPojistovna") %>'
                         AppendDataBoundItems="true">
-                        <asp:ListItem Value="0">Please Select</asp:ListItem>
+                        <asp:ListItem Value="0">Vyber pojistovnu</asp:ListItem>
                 </asp:DropDownList>
 
 
 
 				</EditItemTemplate>
 				<InsertItemTemplate>
-			   		<asp:TextBox ID="pojistovna" runat="server" Text='<%# Bind("pojistovna.cislopojistovna") %>'></asp:TextBox>
+			   		 <asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource4"
+                    DataTextField="CisloPojistovna" DataValueField="IdPojistovna" SelectedValue='<%# Bind("IdPojistovna") %>'
+                        AppendDataBoundItems="true">
+                        <asp:ListItem Value="0">Vyber pojistovnu</asp:ListItem>
+                </asp:DropDownList>
                     
 				</InsertItemTemplate>
 				<ItemTemplate>
@@ -278,6 +290,8 @@
 
 
     </asp:DetailsView>
+    
+    <asp:Label ID="Label1" runat="server"></asp:Label>
     <asp:GridView ID="GridView2" runat="server"
         DataKeyNames="IdPacient" 
         AutoGenerateColumns="False"
@@ -301,4 +315,7 @@
     </Columns>
 
     </asp:GridView>
+    
+    
+    
 </asp:Content>

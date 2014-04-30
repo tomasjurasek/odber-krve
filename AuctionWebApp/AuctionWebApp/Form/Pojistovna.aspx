@@ -16,6 +16,7 @@
     </Columns>
         
     </asp:GridView>
+    
     </br>
       </br>
       </br>
@@ -38,11 +39,13 @@
             <asp:TemplateField HeaderText="CisloPojistovna" SortExpression="cislopojistovna" InsertVisible="True">
 				<EditItemTemplate>
 			   	<asp:TextBox ID="cislopojistovna" runat="server" Text='<%# Bind("cislopojistovna") %>'></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="cislopojistovna"
+                        Operator="DataTypeCheck" Type="Integer">Cislo pojistovny musi byt cislo</asp:CompareValidator>
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:TextBox ID="cislopojistovna" runat="server" Text='<%# Bind("cislopojistovna") %>'></asp:TextBox>
-                    <asp:CompareValidator ID="cislopojistovnaValidator" runat="server" ControlToValidate="cislopojistovna" ErrorMessage="Permission neni Integer" Operator="DataTypeCheck" Type="Integer" ValueToCompare="0">
-                        Permission neni Integer</asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ControlToValidate ="cislopojistovna"
+                        Operator="DataTypeCheck" Type="Integer">Cislo pojistovny musi byt cislo</asp:CompareValidator>
 				</InsertItemTemplate>
 				<ItemTemplate>
 					<asp:Label ID="cislopojistovna" runat="server" Text='<%# Bind("cislopojistovna") %>'></asp:Label>
@@ -59,6 +62,7 @@
        
 
     </asp:DetailsView>
+    
     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" TypeName="AuctionWebApp.Database.PojistovnaTable" DataObjectTypeName="AuctionWebApp.Database.Pojistovna" SelectMethod="Select" InsertMethod="Insert" UpdateMethod="Update">
          <SelectParameters>
             <asp:ControlParameter PropertyName="SelectedValue" Type="Int32" Name="idpojistovna" ControlID="GridView1" DefaultValue="1"></asp:ControlParameter>

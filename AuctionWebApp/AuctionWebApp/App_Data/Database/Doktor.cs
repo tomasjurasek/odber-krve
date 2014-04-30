@@ -12,6 +12,7 @@ namespace AuctionWebApp.Database
         private string mJmeno;
         private string mPrijmeni;
         private bool mPrimar;
+        public string vPrimar { get; set; }
         private string mEmail;
         private int mTelefon;
         private int mBonus;

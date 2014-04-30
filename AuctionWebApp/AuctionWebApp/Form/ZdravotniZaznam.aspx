@@ -11,7 +11,7 @@
       <asp:CommandField ShowSelectButton="true" ShowDeleteButton="True"/>
       <asp:BoundField HeaderText="IdZaznam"     DataField="IdZaznam"  SortExpression="idzaznam"/>
       <asp:BoundField HeaderText="Popis"  DataField="Popis" SortExpression="popis"/>
-             <asp:BoundField HeaderText="Datum"  DataField="Datum" SortExpression="datum"/>
+      <asp:BoundField HeaderText="Datum"  DataField="Datum" DataFormatString="{0:dd/MM/yyyy}" SortExpression="datum"/>
              
 
 
@@ -90,7 +90,7 @@
   
                 </InsertItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="datum" runat="server" Text='<%# Bind("datum") %>'></asp:Label>
+					<asp:Label ID="datum" runat="server" Text='<%# Bind("datum","{0:dd/MM/yyyy}") %>'></asp:Label>
 				</ItemTemplate>
 			</asp:TemplateField> 
             

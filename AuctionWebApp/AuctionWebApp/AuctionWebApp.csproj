@@ -71,6 +71,7 @@
     <Content Include="Form\Doktor.aspx" />
     <Content Include="Form\KrevniSkupina.aspx" />
     <Content Include="Form\NebezpecnaNemoc.aspx" />
+    <Content Include="Form\Odber.aspx" />
     <Content Include="Form\Pacient.aspx" />
     <Content Include="Form\Pojistovna.aspx" />
     <Content Include="Form\Stav.aspx" />
@@ -177,6 +178,13 @@
     <Compile Include="Form\NebezpecnaNemoc.aspx.designer.cs">
       <DependentUpon>NebezpecnaNemoc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form\Odber.aspx.cs">
+      <DependentUpon>Odber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Odber.aspx.designer.cs">
+      <DependentUpon>Odber.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form\Pacient.aspx.cs">
       <DependentUpon>Pacient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +231,8 @@
     <Compile Include="App_Data\Database\NebezpecnaNemocTable.cs" />
     <Compile Include="App_Data\Database\Pacient.cs" />
     <Compile Include="App_Data\Database\PacientTable.cs" />
+    <Compile Include="App_Data\Database\Odber.cs" />
+    <Compile Include="App_Data\Database\OdberTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
