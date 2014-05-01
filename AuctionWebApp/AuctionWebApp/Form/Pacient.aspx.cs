@@ -53,5 +53,15 @@ namespace AuctionWebApp.Form
             table.BonusPacienti(Int32.Parse(ListCategory.SelectedValue.ToString()));
             GridView1.DataBind();
         }
+
+        protected void DetailsView1_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+           // e.Row.Cells[1].Text = "Kč";
+        }
     }
 }

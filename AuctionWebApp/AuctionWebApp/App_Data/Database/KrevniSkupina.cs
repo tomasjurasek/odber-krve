@@ -9,6 +9,7 @@ namespace AuctionWebApp.Database
     {
         public int IdKrve { get; set; }
         public String Skupina {get;set;}
+        public int Zasoby { get; set; }
 
         
     }

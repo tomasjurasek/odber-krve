@@ -20,6 +20,7 @@
     </br>
       </br>
       </br>
+    <p><strong>Detail pojišťovny</strong></p>
     <asp:DetailsView ID="DetailsView1" runat="server"
         AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idpojistovna" GridLines="None" OnItemInserted="DetailsView1_ItemInserted">
         <Fields>
@@ -53,11 +54,7 @@
 			</asp:TemplateField>
 
              <asp:CommandField ShowEditButton="True" ShowInsertButton="True" CancelText="Zrusit" DeleteText="Smazat" EditText="Upravit" InsertText="Vlozit" NewText="Novy zaznam" SelectText="Vzbrat" UpdateText="Aktualizovat" /> 
-        
-        
-        
-        
-        
+
         </Fields>
        
 

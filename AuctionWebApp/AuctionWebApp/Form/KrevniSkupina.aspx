@@ -11,6 +11,7 @@
       <asp:CommandField ShowSelectButton="true" ShowDeleteButton="True"/>
       <asp:BoundField HeaderText="IdKrve"     DataField="IdKrve"  SortExpression="idkrve"/>
       <asp:BoundField HeaderText="Skupina"  DataField="Skupina" SortExpression="skupina"/>
+           
 
     </Columns>
 
@@ -23,8 +24,11 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     
+
+    </br>
+    <p><strong>Detail krevní skupiny</strong></p>
     <asp:DetailsView ID="DetailsView1" runat="server"
-        AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idkrve" GridLines="None">
+        AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idkrve" GridLines="None" OnItemInserted="DetailsView1_ItemInserted" OnItemUpdated="DetailsView1_ItemUpdated">
 
         <Fields>
 
@@ -65,6 +69,10 @@
 
     </asp:DetailsView>
     
+    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server"
+        TypeName="AuctionWebApp.Database.KrevniSkupinaTable" 
+        SelectMethod="Zasoby"></asp:ObjectDataSource>
+    
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"
         TypeName="AuctionWebApp.Database.KrevniSkupinaTable" 
         SelectMethod="Select"  DeleteMethod="Delete">
@@ -72,6 +80,28 @@
       <asp:ControlParameter Type="Int32" Name="IdKrve" ControlID="GridView1"></asp:ControlParameter>
     </DeleteParameters>
     </asp:ObjectDataSource>
+
+
+    
+
+    </br>
+    <p><strong>Statistika krve</strong></p>
+    <asp:GridView ID="GridView2" runat="server"
+        DataKeyNames="IdKrve"
+    AutoGenerateColumns="False"
+    AllowPaging="True" DataSourceID="ObjectDataSource3">
+         <Columns>
+      
+      <%--<asp:BoundField HeaderText="IdKrve"     DataField="IdKrve"  SortExpression="idkrve"/>--%>
+      <asp:BoundField HeaderText="Skupina"  DataField="Skupina" SortExpression="skupina"/>
+      <asp:BoundField HeaderText="Zasoby"  DataField="Zasoby"  SortExpression="Zasoby"/>
+           
+
+    </Columns>
+    </asp:GridView>
+
+
+    
 
 
 </asp:Content>

@@ -6,7 +6,7 @@
     <asp:GridView ID="GridView1" runat="server"
         DataKeyNames="IdDoktor" 
         AutoGenerateColumns="False"
-    AllowPaging="True" DataSourceID="ObjectDataSource1">
+    AllowPaging="True" DataSourceID="ObjectDataSource1" OnRowDataBound="GridView1_RowDataBound">
 
 
          <Columns>
@@ -22,9 +22,10 @@
     </Columns>
     </asp:GridView>
 
-
+    </br>
+    <p><strong>Detail doktora</strong></p>
     <asp:DetailsView ID="DetailsView1" runat="server" 
-        AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="iddoktor" GridLines="None">
+        AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="iddoktor" GridLines="None" OnItemInserted="DetailsView1_ItemInserted" OnItemUpdated="DetailsView1_ItemUpdated">
 
         <Fields>
 
@@ -69,7 +70,11 @@
 
             <asp:TemplateField HeaderText="Primar" SortExpression="primar" InsertVisible="True">
 				<EditItemTemplate>
-			   	<asp:TextBox ID="primar" runat="server" Text='<%# Bind("primar") %>'></asp:TextBox>
+			   	<asp:DropDownList ID="DropDownListSubContractors" runat="server" AppendDataBoundItems="true" 
+                          SelectedValue='<%# Bind("primar") %>' >
+                    <asp:ListItem Text="Ano" Value="True" />   
+                   <asp:ListItem Text="Ne" Value="False" /> 
+                </asp:DropDownList>
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:DropDownList ID="DropDownListSubContractors" runat="server" AppendDataBoundItems="true" 
@@ -129,40 +134,15 @@
 			</asp:TemplateField>
 
 
-
-
-
              <asp:CommandField ShowEditButton="True" ShowInsertButton="True" CancelText="Zrusit" DeleteText="Smazat" EditText="Upravit" InsertText="Vlozit" NewText="Novy zaznam" SelectText="Vzbrat" UpdateText="Aktualizovat" /> 
-        
-        
-        
-        
+
         
         </Fields>
     </asp:DetailsView>
 
-
-    
-
-
-    
-
-
-    
-
-
     <asp:ObjectDataSource ID="ObjectDataSource3" runat="server"
         TypeName="AuctionWebApp.Database.PojistovnaTable" 
         SelectMethod="Select"></asp:ObjectDataSource>
-
-
-    
-
-
-    
-
-
-    
 
 
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"
@@ -176,9 +156,9 @@
 
 
     
-
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </br>
+    <p><strong>Funkce na bonus</strong></p>
+    
      <asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource3"
                     DataTextField="CisloPojistovna" DataValueField="IdPojistovna"
                         AppendDataBoundItems="true">

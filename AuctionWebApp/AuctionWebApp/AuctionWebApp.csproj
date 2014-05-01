@@ -73,7 +73,6 @@
     <Content Include="Form\Pacient.aspx" />
     <Content Include="Form\Pojistovna.aspx" />
     <Content Include="Form\Stav.aspx" />
-    <Content Include="Form\User.aspx" />
     <Content Include="Form\ZdravotniZaznam.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -183,13 +182,6 @@
     </Compile>
     <Compile Include="Form\Stav.aspx.designer.cs">
       <DependentUpon>Stav.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Form\User.aspx.cs">
-      <DependentUpon>User.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Form\User.aspx.designer.cs">
-      <DependentUpon>User.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\ZdravotniZaznam.aspx.cs">
       <DependentUpon>ZdravotniZaznam.aspx</DependentUpon>

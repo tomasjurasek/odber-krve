@@ -10,15 +10,10 @@
     AllowPaging="True" DataSourceID="ObjectDataSource1" >
 
          <Columns>
-      <asp:CommandField ShowSelectButton="true" ShowDeleteButton="false"/>
-      <asp:BoundField HeaderText="IdOdber"     DataField="IdOdber"  SortExpression="idodber"/>
-     <%-- <asp:BoundField HeaderText="IdDoktor"  DataField="IdDoktor" SortExpression="iddoktor"/>
-             <asp:BoundField HeaderText="IdPacient"  DataField="IdPacient" SortExpression="idpacient"/>
-             <asp:BoundField HeaderText="IdUskladneni"  DataField="IdUskladneni" SortExpression="IdUskladneni"/>
-             <asp:BoundField HeaderText="IdStav"  DataField="IdStav" SortExpression="IdStav"/> --%>
-             <asp:BoundField HeaderText="Datum"  DataField="Datum" SortExpression="Datum"/>
-            
-             <asp:BoundField HeaderText="CisloUschovna"  DataField="CisloUschovna" SortExpression="CisloUschovna"/>
+        <asp:CommandField ShowSelectButton="true" ShowDeleteButton="false"/>
+        <asp:BoundField HeaderText="IdOdber"     DataField="IdOdber"  SortExpression="idodber"/>
+        <asp:BoundField HeaderText="Datum"  DataField="Datum" DataFormatString="{0:dd/MM/yyyy}" SortExpression="Datum"/>
+        <asp:BoundField HeaderText="CisloUschovna"  DataField="CisloUschovna" SortExpression="CisloUschovna"/>
 
 
              <asp:TemplateField HeaderText ="Pacient">
@@ -53,11 +48,11 @@
     </DeleteParameters>
 
     </asp:ObjectDataSource>
-
-
+    </br>
+    <p><strong>Detail odběru</strong></p>
     <asp:DetailsView ID="DetailsView1" runat="server" 
         AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idodber"
-         GridLines="None" >
+         GridLines="None" OnItemInserted="DetailsView1_ItemInserted" OnItemUpdated="DetailsView1_ItemUpdated" >
 
 
 
@@ -78,14 +73,8 @@
 
             <asp:TemplateField HeaderText="IdDoktor" SortExpression="IdDoktor" InsertVisible="true">
 				<EditItemTemplate>
-			   	
-                     <asp:DropDownList ID="ListDoktoru" runat="server" DataSourceID="ObjectDataSource4"
-                        DataTextField="Email" DataValueField="IdDoktor" AppendDataBoundItems="true"
-                        SelectedValue='<%# Bind("IdDoktor") %>'>
-                        <asp:ListItem Value="0">Vyber doktora</asp:ListItem>
-                    </asp:DropDownList>
-
-				</EditItemTemplate>
+			   	    <asp:Label ID="IdDoktor" runat="server" Text='<%# Bind("IdDoktor") %>'></asp:Label>
+                </EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:DropDownList ID="ListDoktoru" runat="server" DataSourceID="ObjectDataSource4"
                         DataTextField="Email" DataValueField="IdDoktor" AppendDataBoundItems="true"
@@ -94,18 +83,14 @@
                     </asp:DropDownList>
 				</InsertItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="IdDoktor" runat="server" Text='<%# Bind("IdDoktor") %>'></asp:Label>
+					<asp:Label ID="IdDoktor" runat="server" Text='<%# Bind("Doktor.Email") %>'></asp:Label>
 				</ItemTemplate>
 			</asp:TemplateField>
 
 
             <asp:TemplateField HeaderText="IdPacient" SortExpression="IdPacient" InsertVisible="true">
 				<EditItemTemplate>
-			   	<asp:DropDownList ID="ListPacientu" runat="server" DataSourceID="ObjectDataSource5"
-                        DataTextField="Email" DataValueField="IdPacient" AppendDataBoundItems="true"
-                        SelectedValue='<%# Bind("IdPacient") %>'>
-                        <asp:ListItem Value="0">Vyber pacienta</asp:ListItem>
-                    </asp:DropDownList>
+			   	<asp:Label ID="IdPacient" runat="server" Text='<%# Bind("IdPacient") %>'></asp:Label>
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:DropDownList ID="ListPacientu" runat="server" DataSourceID="ObjectDataSource5"
@@ -115,7 +100,7 @@
                     </asp:DropDownList>
 				</InsertItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="IdPacient" runat="server" Text='<%# Bind("IdPacient") %>'></asp:Label>
+					<asp:Label ID="IdPacient" runat="server" Text='<%# Bind("Pacient.Email") %>'></asp:Label>
 				</ItemTemplate>
 			</asp:TemplateField>
 
@@ -125,14 +110,12 @@
 
             <asp:TemplateField HeaderText="CisloUschovna" SortExpression="CisloUschovna" InsertVisible="true">
 				<EditItemTemplate>
-			   	<asp:TextBox ID="CisloUschovna" runat="server" Text='<%# Bind("CisloUschovna") %>'></asp:TextBox>
-            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="CisloUschovna"
-                 Operator="DataTypeCheck" Type="Integer">Uschovna neni cislo</asp:CompareValidator>
+			   	    <asp:Label ID="CisloUschovna" runat="server" Text='<%# Bind("CisloUschovna") %>'></asp:Label>
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		<asp:TextBox ID="CisloUschovna" runat="server" Text='<%# Bind("CisloUschovna") %>'></asp:TextBox>
-<asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ControlToValidate ="CisloUschovna"
-   Operator="DataTypeCheck" Type="Integer" >Uschovna neni cislo</asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ControlToValidate ="CisloUschovna"
+                     Operator="DataTypeCheck" Type="Integer" >Uschovna neni cislo</asp:CompareValidator>
 				</InsertItemTemplate>
 				<ItemTemplate>
 					<asp:Label ID="CisloUschovna" runat="server" Text='<%# Bind("CisloUschovna") %>'></asp:Label>
@@ -143,44 +126,32 @@
 
             <asp:TemplateField HeaderText="Stav" SortExpression="Stav" InsertVisible="True">
 				<EditItemTemplate>
-			   	<%--<asp:TextBox ID="stav" runat="server" Text='<%# Bind("stav.nazevstavu") %>'></asp:TextBox>--%>
-
-
                     <asp:DropDownList ID="ListStavu" runat="server" DataSourceID="ObjectDataSource3"
                         DataTextField="NazevStavu" DataValueField="IdStav" AppendDataBoundItems="true"
                         SelectedValue='<%# Bind("IdStav") %>'>
-                        <asp:ListItem Value="0">Please Select</asp:ListItem>
+                        <asp:ListItem Value="0">Vyber stav</asp:ListItem>
                     </asp:DropDownList>
-
 				</EditItemTemplate>
 				<InsertItemTemplate>
-			   		<asp:TextBox ID="stav" runat="server" Text='<%# Bind("idstav") %>'></asp:TextBox>
-                    
+			   		<asp:DropDownList ID="ListStavu" runat="server" DataSourceID="ObjectDataSource3"
+                        DataTextField="NazevStavu" DataValueField="IdStav" AppendDataBoundItems="true"
+                        SelectedValue='<%# Bind("IdStav") %>'>
+                        <asp:ListItem Value="0">Vyber stav</asp:ListItem>
+                    </asp:DropDownList>
 				</InsertItemTemplate>
 				<ItemTemplate>
 					<asp:Label ID="stav" runat="server" Text='<%# Bind("stav.nazevstavu") %>'></asp:Label>
 				</ItemTemplate>
 			</asp:TemplateField>
 
-             
-
-
-              
-
-
-
-
              <asp:CommandField ShowEditButton="True" ShowInsertButton="True" CancelText="Zrusit" DeleteText="Smazat" EditText="Upravit" InsertText="Vlozit" NewText="Novy zaznam" SelectText="Vzbrat" UpdateText="Aktualizovat" /> 
-        
-        
-        
-        
-        
+
         </Fields>
-
-
-
     </asp:DetailsView>
+
+
+    <asp:Label ID="Label1" runat="server"></asp:Label>
+    </br>
 
 
     <asp:ObjectDataSource ID="ObjectDataSource4" runat="server"
@@ -193,34 +164,25 @@
         SelectMethod="Select"></asp:ObjectDataSource>
 
 
-    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" TypeName="AuctionWebApp.Database.OdberTable" DataObjectTypeName="AuctionWebApp.Database.Odber" SelectMethod="Select" InsertMethod="Insert" UpdateMethod="Update">
+    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" TypeName="AuctionWebApp.Database.OdberTable" DataObjectTypeName="AuctionWebApp.Database.Odber" SelectMethod="Select" InsertMethod="Insert" UpdateMethod="Update" OnInserted="ObjectDataSource2_Inserted">
 
         <SelectParameters>
             <asp:ControlParameter PropertyName="SelectedValue" Type="Int32" Name="idodber" ControlID="GridView1" DefaultValue="1"></asp:ControlParameter>
         </SelectParameters></asp:ObjectDataSource>
-
-
-    
-
-
-    
-
-
-    
-
 
     <asp:ObjectDataSource ID="ObjectDataSource5" runat="server"
         TypeName="AuctionWebApp.Database.PacientTable" 
         SelectMethod="Select"></asp:ObjectDataSource>
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Zkontroluj stare odbery" />
+    </br>
+    <p><strong>Funkce</strong></p>
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Odstraň staré odběry >=24 měsíců" />
 
 
     <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Nakazene odbery" />
+
+    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Odstraň nakazené odběry" />
 
 
 </asp:Content>

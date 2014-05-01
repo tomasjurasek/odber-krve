@@ -22,5 +22,28 @@ namespace AuctionWebApp.Form
             GridView1.DataBind();
             
         }
+
+        protected void DetailsView1_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            GridView1.DataBind();
+        }
+
+        protected void DetailsView1_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string s = e.Row.Cells[4].Text;
+
+                if (s == "True")
+                    e.Row.Cells[4].Text = "Ano";
+                else
+                    e.Row.Cells[4].Text = "Ne";
+            }
+        }
     }
 }

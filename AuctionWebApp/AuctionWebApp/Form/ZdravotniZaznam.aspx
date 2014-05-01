@@ -13,9 +13,6 @@
       <asp:BoundField HeaderText="Popis"  DataField="Popis" SortExpression="popis"/>
       <asp:BoundField HeaderText="Datum"  DataField="Datum" DataFormatString="{0:dd/MM/yyyy}" SortExpression="datum"/>
              
-
-
-
               <asp:TemplateField HeaderText ="Pacient">
                  <ItemTemplate >
                      <asp:Label ID="pacient" runat="server" Text='<%# Eval("Pacient.Jmeno") + " " + Eval("Pacient.Prijmeni") + " - " + Eval("Pacient.Email")%>'></asp:Label>
@@ -45,10 +42,12 @@
         TypeName="AuctionWebApp.Database.PacientTable" 
         SelectMethod="Select"></asp:ObjectDataSource>
 
+    </br>
 
+    <p><strong>Detail zdravotního záznamu</strong></p>
     <asp:DetailsView ID="DetailsView1" runat="server"
          AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idzaznam"
-         GridLines="None">
+         GridLines="None" OnItemInserted="DetailsView1_ItemInserted" OnItemUpdated="DetailsView1_ItemUpdated">
 
         <Fields>
 
@@ -103,7 +102,7 @@
                     <asp:DropDownList ID="ListKrve" runat="server" DataSourceID="ObjectDataSource3"
                         DataTextField="Email" DataValueField="IdPacient" AppendDataBoundItems="true"
                         SelectedValue='<%# Bind("IdPacient") %>'>
-                        <asp:ListItem Value="0">Please Select</asp:ListItem>
+                        <asp:ListItem Value="0">Vyber pacienta</asp:ListItem>
                     </asp:DropDownList>
                     
                                       
@@ -113,7 +112,7 @@
 			   		<asp:DropDownList ID="ListKrve" runat="server" DataSourceID="ObjectDataSource3"
                         DataTextField="Email" DataValueField="IdPacient" AppendDataBoundItems="true"
                         SelectedValue='<%# Bind("IdPacient") %>'>
-                        <asp:ListItem Value="0">Please Select</asp:ListItem>
+                        <asp:ListItem Value="0">Vyber pacienta</asp:ListItem>
                     </asp:DropDownList>
                     
 				</InsertItemTemplate>

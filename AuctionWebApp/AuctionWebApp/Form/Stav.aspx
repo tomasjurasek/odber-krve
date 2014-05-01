@@ -15,8 +15,13 @@
 
     </Columns>
     </asp:GridView>
+
+
+
+    </br>
+    <p><strong>Detail stavu</strong></p>
     <asp:DetailsView ID="DetailsView1" runat="server" 
-        AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idstav" GridLines="None">
+        AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idstav" GridLines="None" OnItemInserted="DetailsView1_ItemInserted" OnItemUpdated="DetailsView1_ItemUpdated">
 
           <Fields>
 

@@ -5,7 +5,7 @@
     <asp:GridView ID="GridView1" runat="server"
          DataKeyNames="IdPacient" 
         AutoGenerateColumns="False"
-    AllowPaging="True" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+    AllowPaging="True" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
 
          <Columns>
       <asp:CommandField ShowSelectButton="true" ShowDeleteButton="True"/>
@@ -71,12 +71,13 @@
 </asp:ObjectDataSource>
 
 
-    
+    </br>
+    <p><strong>Detail pacienta</strong></p>
 
 
     <asp:DetailsView ID="DetailsView1" runat="server" 
         AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idpacient"
-         GridLines="None" OnItemInserting="DetailsView1_ItemInserting" OnItemUpdated="DetailsView1_ItemUpdated">
+         GridLines="None" OnItemInserting="DetailsView1_ItemInserting" OnItemUpdated="DetailsView1_ItemUpdated" OnItemInserted="DetailsView1_ItemInserted">
 
 
          <Fields>
@@ -235,24 +236,11 @@
 
              <asp:TemplateField HeaderText="Pojistovna" SortExpression="pojistovna.cislopojistovna" InsertVisible="True">
 				<EditItemTemplate>
-			   	
-                    <%--<asp:DropDownList ID ="ListPojistovna" runat ="server" DataSourceID ="ObjectDataSource4" 
-                     DataTextField ="CisloPojistovna" DataValueField ="IdPojistovna" 
-                     
-                         />--%>
-
-                 
-
-
-
-                    <asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource4"
-                    DataTextField="CisloPojistovna" DataValueField="IdPojistovna" SelectedValue='<%# Bind("IdPojistovna") %>'
-                        AppendDataBoundItems="true">
-                        <asp:ListItem Value="0">Vyber pojistovnu</asp:ListItem>
-                </asp:DropDownList>
-
-
-
+                        <asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource4"
+                        DataTextField="CisloPojistovna" DataValueField="IdPojistovna" SelectedValue='<%# Bind("IdPojistovna") %>'
+                            AppendDataBoundItems="true">
+                            <asp:ListItem Value="0">Vyber pojistovnu</asp:ListItem>
+                        </asp:DropDownList>
 				</EditItemTemplate>
 				<InsertItemTemplate>
 			   		 <asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource4"
@@ -267,48 +255,29 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-
-
-              <%--<asp:TemplateField HeaderText="zaznamy" SortExpression="zaznamy" InsertVisible="True">
-				
-				<ItemTemplate>
-                    <%foreach (var item in ) %>
-					<asp:Label ID="pojistovna" runat="server" Text='<%# Bind("pojistovna.cislopojistovna") %>'></asp:Label>
-				</ItemTemplate>
-			</asp:TemplateField>--%>
-
-
-
-
              <asp:CommandField ShowEditButton="True" ShowInsertButton="True" CancelText="Zrusit" DeleteText="Smazat" EditText="Upravit" InsertText="Vlozit" NewText="Novy zaznam" SelectText="Vzbrat" UpdateText="Aktualizovat" /> 
-        
-        
-        
-        
-        
+
         </Fields>
+
+
+         <HeaderStyle BorderStyle="Solid" />
 
 
     </asp:DetailsView>
     
     <asp:Label ID="Label1" runat="server"></asp:Label>
+    </br>
+    <p><strong>Seznam pacientových nemocí</strong></p>
     <asp:GridView ID="GridView2" runat="server"
         DataKeyNames="IdPacient" 
         AutoGenerateColumns="False"
     AllowPaging="True" DataSourceID="ObjectDataSource5">
         
-        
-       <%-- <EmptyDataTemplate>
-		<asp:Label ID="lblEmptySearch" runat="server">No Results Found</asp:Label>
-	</EmptyDataTemplate>--%>
 
-
-         <Columns>
-     <%-- <asp:CommandField ShowSelectButton="false" ShowDeleteButton="false"/>--%>
-      
+         <Columns>      
         <asp:BoundField HeaderText="IdZaznam"  DataField="IdZaznam" SortExpression="idzaznam"/>
              <asp:BoundField HeaderText="Popis"  DataField="Popis" SortExpression="popis"/>
-             <asp:BoundField HeaderText="Datum"  DataField="Datum" SortExpression="datum"/>
+             <asp:BoundField HeaderText="Datum"  DataField="Datum" DataFormatString="{0:dd/MM/yyyy}" SortExpression="datum"/>
              <%--<asp:BoundField HeaderText="IdPacient"  DataField="Idpacient" SortExpression="idpacient"/>--%>
             
 
@@ -317,7 +286,8 @@
     </asp:GridView>
     
     
-    
+    </br>
+    <p><strong> Funkce na přidání bonusů</strong></p>
 &nbsp;<asp:DropDownList ID="ListCategory" runat="server" DataSourceID="ObjectDataSource4"
                     DataTextField="CisloPojistovna" DataValueField="IdPojistovna"
                         AppendDataBoundItems="true">
