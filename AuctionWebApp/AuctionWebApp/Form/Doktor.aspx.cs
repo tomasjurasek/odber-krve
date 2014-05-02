@@ -38,7 +38,7 @@ namespace AuctionWebApp.Form
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 string s = e.Row.Cells[4].Text;
-
+                e.Row.Cells[7].Text += " Kč";
                 if (s == "True")
                     e.Row.Cells[4].Text = "Ano";
                 else

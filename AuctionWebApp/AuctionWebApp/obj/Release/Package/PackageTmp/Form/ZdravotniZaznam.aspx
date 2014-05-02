@@ -49,10 +49,6 @@
          AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idzaznam"
          GridLines="None" OnItemInserted="DetailsView1_ItemInserted" OnItemUpdated="DetailsView1_ItemUpdated">
 
-        <EmptyDataTemplate>
-            <asp:Button ID="InsertButton" runat="server" CommandName="New" Text="Vložit" />
-        </EmptyDataTemplate>
-
         <Fields>
 
             <asp:TemplateField HeaderText="IdZaznam" SortExpression="idzaznam" InsertVisible="true">
@@ -89,7 +85,7 @@
 				<InsertItemTemplate>
 			   		
                    <asp:TextBox  ID="datum" runat="server" Text='<%# Bind("mdatum") %>'></asp:TextBox>
-                    <asp:Label ID="Label1" runat="server" Text="Datum zadavej ve tvaru den-mesic-rok"></asp:Label>
+                    
   
                 </InsertItemTemplate>
 				<ItemTemplate>

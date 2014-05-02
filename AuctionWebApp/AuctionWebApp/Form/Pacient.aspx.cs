@@ -61,7 +61,11 @@ namespace AuctionWebApp.Form
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-           // e.Row.Cells[1].Text = "Kč";
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Cells[9].Text += " Kč";
+
+            }
         }
     }
 }

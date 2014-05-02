@@ -54,9 +54,7 @@
         AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idodber"
          GridLines="None" OnItemInserted="DetailsView1_ItemInserted" OnItemUpdated="DetailsView1_ItemUpdated" >
 
-        <EmptyDataTemplate>
-            <asp:Button ID="InsertButton" runat="server" CommandName="New" Text="Vložit" />
-        </EmptyDataTemplate>
+
 
         <Fields>
 

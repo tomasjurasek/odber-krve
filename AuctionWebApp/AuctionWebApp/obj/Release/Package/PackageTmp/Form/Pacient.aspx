@@ -78,9 +78,7 @@
     <asp:DetailsView ID="DetailsView1" runat="server" 
         AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idpacient"
          GridLines="None" OnItemInserting="DetailsView1_ItemInserting" OnItemUpdated="DetailsView1_ItemUpdated" OnItemInserted="DetailsView1_ItemInserted">
-        <EmptyDataTemplate>
-            <asp:Button ID="InsertButton" runat="server" CommandName="New" Text="Vložit" />
-        </EmptyDataTemplate>
+
 
          <Fields>
 
@@ -286,30 +284,6 @@
     </Columns>
 
     </asp:GridView>
-    
-    
-    <br />
-    <p><strong>Seznam pacientových odběrů</strong></p>
-    <asp:GridView ID="GridView3" runat="server"
-        DataKeyNames="IdPacient" 
-        AutoGenerateColumns="False"
-    AllowPaging="True" DataSourceID="ObjectDataSource6">
-        <Columns>      
-            <asp:BoundField HeaderText="Idodber"  DataField="Idodber" SortExpression="Idodber"/>
-             <asp:BoundField HeaderText="Doktor"  DataField="Doktor.Email" SortExpression="Doktor.Jmeno"/>
-             <asp:BoundField HeaderText="Datum"  DataField="Datum" DataFormatString="{0:dd/MM/yyyy}" SortExpression="datum"/>
-            </Columns>
-    </asp:GridView>
-    
-    <asp:ObjectDataSource ID="ObjectDataSource6" runat="server"
-        TypeName="AuctionWebApp.Database.OdberTable" DataObjectTypeName="AuctionWebApp.Database.Odber" SelectMethod="SelectOdber" InsertMethod="Insert" UpdateMethod="Update">
-
-        <SelectParameters>
-            <asp:ControlParameter PropertyName="SelectedValue" Type="Int32" Name="IdPacient" ControlID="GridView1" DefaultValue="1"></asp:ControlParameter>
-        </SelectParameters>
-
-    </asp:ObjectDataSource>
-    
     
     
     </br>

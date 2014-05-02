@@ -23,5 +23,11 @@ namespace AuctionWebApp.Form
         {
             GridView1.DataBind();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //TextBox formTextBox = Page.FindControl("datum") as TextBox;
+            //formTextBox.Text = DateTime.Now.ToString();
+        }
     }
 }

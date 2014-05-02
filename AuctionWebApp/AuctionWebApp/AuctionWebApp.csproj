@@ -216,7 +216,9 @@
     <Compile Include="App_Data\Database\ZdravotniZaznam.cs" />
     <Compile Include="App_Data\Database\ZdravotniZaznamTable.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\aspone.pubxml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />

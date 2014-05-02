@@ -20,7 +20,7 @@ namespace AuctionWebApp.Database
 
 
         public String SQL_UPDATE = @"UPDATE odber SET id_stavu=@IdStav where id_odberu = @IdOdber";
-        public string SQL_SELECT_PACIENT = @"SELECT * FROM zdravotni_zaznam WHERE id_pacient = @IdPacient";
+        public string SQL_SELECT_ODBER = @"SELECT * FROM odber join uskladneni on odber.id_uskladneni=uskladneni.id_uskladneni WHERE id_pacient = @IdPacient";
 
 
 
@@ -196,6 +196,25 @@ namespace AuctionWebApp.Database
             SqlCommand command = db.CreateCommand("OdstranNeplatneOdbery");
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
+        }
+
+        public Collection<Odber> Selectodber(int idpacient)
+        {
+            Database db = new Database();
+            db.Connect();
+
+            SqlCommand command = db.CreateCommand(SQL_SELECT_ODBER);
+            command.Parameters.Add(new SqlParameter("@IdPacient", SqlDbType.Int));
+            command.Parameters["@idpacient"].Value = idpacient;
+            SqlDataReader reader = db.Select(command);
+
+            Collection<Odber> odbery = Read(reader);
+            //ZdravotniZaznam zaznam = null;
+
+            reader.Close();
+            db.Close();
+
+            return odbery;
         }
 
     }

@@ -21,9 +21,7 @@
 
     <asp:DetailsView ID="DetailsView1" runat="server" 
         AutoGenerateRows="false" DataSourceID="ObjectDataSource2" DataKeyNames="idnemoc" GridLines="None" OnItemInserted="DetailsView1_ItemInserted" OnItemUpdated="DetailsView1_ItemUpdated">
-         <EmptyDataTemplate>
-            <asp:Button ID="InsertButton" runat="server" CommandName="New" Text="Vložit" />
-        </EmptyDataTemplate>
+
 
         <Fields>
 
