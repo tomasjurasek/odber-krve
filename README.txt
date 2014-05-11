@@ -1,1 +1,1 @@
-IS pro odber krve
+projekt v asp webforms do databazovych systemu, implementace vlastniho ORM
